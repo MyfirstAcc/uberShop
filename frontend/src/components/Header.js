@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navbar, Nav,  Container, Row, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
@@ -18,19 +18,21 @@ function Header() {
 
     return (
         <header>
-            <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
-                <Container>
+            <Navbar bg="dark" variant="dark" expand="md" rounded aria-label="Eleventh navbar example">
+                <div className="container-fluid">
+
                     <LinkContainer to='/'>
-                   
+
                         <Navbar.Brand>UberShop</Navbar.Brand>
-                   
+
                     </LinkContainer>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav mb-2 mb-md-0" />
+                    <Navbar.Collapse id="basic-navbar-nav ">
 
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <SearchBox />
-                        <Nav className="ml-auto">
-
+                        <Nav className="me-auto">
+                            <LinkContainer to='/catalog'>
+                                <Nav.Link><i className="fa fa-bars"></i>Каталог</Nav.Link>
+                            </LinkContainer>
                             <LinkContainer to='/cart'>
                                 <Nav.Link ><i className="fas fa-shopping-cart"></i>Корзина</Nav.Link>
                             </LinkContainer>
@@ -45,12 +47,10 @@ function Header() {
 
                                 </NavDropdown>
                             ) : (
-                                    <LinkContainer to='/login'>
-                                        <Nav.Link><i className="fas fa-user"></i>Войти</Nav.Link>
-                                    </LinkContainer>
-                                )}
-
-
+                                <LinkContainer to='/login'>
+                                    <Nav.Link><i className="fas fa-user"></i>Войти</Nav.Link>
+                                </LinkContainer>
+                            )}
                             {userInfo && userInfo.isAdmin && (
                                 <NavDropdown title='Admin' id='adminmenue'>
                                     <LinkContainer to='/admin/userlist'>
@@ -67,15 +67,18 @@ function Header() {
 
                                 </NavDropdown>
                             )}
-                            
+
                             <LinkContainer to='/about'>
-                                <Nav.Link ><i className="fas fa-shopping-cart"></i>О нас</Nav.Link>
+                                <Nav.Link ><i className="fa fa-info-circle"></i>О нас</Nav.Link>
                             </LinkContainer>
 
 
+
                         </Nav>
+                        <SearchBox />
+
                     </Navbar.Collapse>
-                </Container>
+                </div>
             </Navbar>
         </header>
     )

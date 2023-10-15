@@ -16,7 +16,7 @@ function SearchBox() {
         }
     }
     return (
-        <Form onSubmit={submitHandler} inline>
+        <Form className="d-flex" role="search" onSubmit={submitHandler}>
             <Form.Control
                 type='text'
                 name='q'
