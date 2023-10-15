@@ -94,10 +94,10 @@ def getOrderById(request, pk):
             serializer = OrderSerializer(order, many=False)
             return Response(serializer.data)
         else:
-            Response({'detail': 'Not authorized to view this order'},
+            Response({'detail': 'Вы не авторизованы для просмотра этого заказа'},
                      status=status.HTTP_400_BAD_REQUEST)
     except:
-        return Response({'detail': 'Order does not exist'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'detail': 'Заказ не существует'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['PUT'])
@@ -109,7 +109,7 @@ def updateOrderToPaid(request, pk):
     order.paidAt = datetime.now()
     order.save()
 
-    return Response('Order was paid')
+    return Response('Заказ оплачен')
 
 
 @api_view(['PUT'])
@@ -121,4 +121,4 @@ def updateOrderToDelivered(request, pk):
     order.deliveredAt = datetime.now()
     order.save()
 
-    return Response('Order was delivered')
+    return Response('Заказ доставлен')

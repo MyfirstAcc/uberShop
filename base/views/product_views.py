@@ -96,7 +96,7 @@ def updateProduct(request, pk):
 def deleteProduct(request, pk):
     product = Product.objects.get(_id=pk)
     product.delete()
-    return Response('Producted Deleted')
+    return Response('Товар удален')
 
 
 @api_view(['POST'])
@@ -109,7 +109,7 @@ def uploadImage(request):
     product.image = request.FILES.get('image')
     product.save()
 
-    return Response('Image was uploaded')
+    return Response('Изображение загружено')
 
 
 @api_view(['POST'])
@@ -122,12 +122,12 @@ def createProductReview(request, pk):
     # 1 - Review already exists
     alreadyExists = product.review_set.filter(user=user).exists()
     if alreadyExists:
-        content = {'detail': 'Product already reviewed'}
+        content = {'detail': 'Отзыв уже существует'}
         return Response(content, status=status.HTTP_400_BAD_REQUEST)
 
     # 2 - No Rating or 0
     elif data['rating'] == 0:
-        content = {'detail': 'Please select a rating'}
+        content = {'detail': 'Пожалуйста, выберите рейтинг'}
         return Response(content, status=status.HTTP_400_BAD_REQUEST)
 
     # 3 - Create review
@@ -150,4 +150,4 @@ def createProductReview(request, pk):
         product.rating = total / len(reviews)
         product.save()
 
-        return Response('Review Added')
+        return Response('Отзыв добавлен')

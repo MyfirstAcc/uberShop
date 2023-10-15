@@ -42,7 +42,7 @@ def registerUser(request):
         serializer = UserSerializerWithToken(user, many=False)
         return Response(serializer.data)
     except:
-        message = {'detail': 'User with this email already exists'}
+        message = {'detail': 'Пользователь с этим электронным письмом уже существует'}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -113,4 +113,4 @@ def updateUser(request, pk):
 def deleteUser(request, pk):
     userForDeletion = User.objects.get(id=pk)
     userForDeletion.delete()
-    return Response('User was deleted')
+    return Response('Пользователь был удален')
