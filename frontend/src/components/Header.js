@@ -36,6 +36,9 @@ function Header() {
                             <LinkContainer to='/cart'>
                                 <Nav.Link ><i className="fas fa-shopping-cart"></i>Корзина</Nav.Link>
                             </LinkContainer>
+                            <LinkContainer to='/about'>
+                                <Nav.Link ><i className="fa fa-info-circle"></i>О нас</Nav.Link>
+                            </LinkContainer>
 
                             {userInfo ? (
                                 <NavDropdown title={userInfo.name} id='username'>
@@ -52,7 +55,7 @@ function Header() {
                                 </LinkContainer>
                             )}
                             {userInfo && userInfo.isAdmin && (
-                                <NavDropdown title='Admin' id='adminmenue'>
+                                <NavDropdown title='Админка' id='adminmenue'>
                                     <LinkContainer to='/admin/userlist'>
                                         <NavDropdown.Item>Пользователь</NavDropdown.Item>
                                     </LinkContainer>
@@ -68,9 +71,7 @@ function Header() {
                                 </NavDropdown>
                             )}
 
-                            <LinkContainer to='/about'>
-                                <Nav.Link ><i className="fa fa-info-circle"></i>О нас</Nav.Link>
-                            </LinkContainer>
+                           
 
 
 
