@@ -42,7 +42,7 @@ def registerUser(request):
         serializer = UserSerializerWithToken(user, many=False)
         return Response(serializer.data)
     except:
-        message = {'detail': 'Пользователь с этим электронным письмом уже существует'}
+        message = {'detail': 'Пользователь с этим электронным адресом уже существует'}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
