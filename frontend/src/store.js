@@ -13,7 +13,6 @@ import {
 
 import { cartReducer } from './reducers/cartReducers'
 
-import { CatalogReducer } from './reducers/catalogReducers'
 
 import {
     userLoginReducer,
