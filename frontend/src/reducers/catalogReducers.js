@@ -2,10 +2,10 @@ import {
     CATALOG_LIST_REQUEST,
     CATALOG_LIST_SUCCESS,
     CATALOG_LIST_FAIL,
-} from '../constants/orderConstants'
+} from '../constants/catalogConstants'
 
 
-export const catalogListReducer = (state = { catalogs: [] }, action) => {
+export const catalogReducer = (state = { catalogs: [] }, action) => {
     switch (action.type) {
         case CATALOG_LIST_REQUEST:
             return { loading: true, catalogs: [] }

@@ -8,7 +8,7 @@ import {
 
 
 
-export const listProducts = (keyword = '') => async (dispatch) => {
+export const listCatalog = (keyword = '') => async (dispatch) => {
     try {
         dispatch({ type: CATALOG_LIST_REQUEST })
 
