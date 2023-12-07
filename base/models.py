@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class TypeProduct(models.Model):
     _id = models.AutoField(primary_key=True, editable=False)
     name = models.CharField(max_length=200, null=True, blank=True)
+    _name = models.CharField(max_length=200, null=True, blank=True)
     image = models.ImageField(null=True, blank=True,
                               default='/placeholder.png')
     def __str__(self):

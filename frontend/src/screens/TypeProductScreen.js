@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 
-function CatalogScreen() {
+function TypeCatalogScreen() {
     const dispatch = useDispatch();
     const catalogList = useSelector((state) => state.catalogList);
     const { error, loading, catalogs, page, pages } = catalogList;
@@ -24,18 +24,20 @@ function CatalogScreen() {
                             {console.log(catalogs)}
 
                             {catalogs.map(catalog => (
-                                <Col key={catalog.name} sm={12} md={6} lg={4} xl={3}>
-                                    <Card className="my-3 p-3 rounded card-custom">
-                                        <Link to={`/catalog/${catalog._name}`}>
-                                            <Card.Img variant="top" src={catalog.image} className="card-img-top" />
+                                <Col key={catalog._id} sm={12} md={6} lg={4} xl={3}>
+                                    <Card className="my-3 p-3 rounded">
+                                        <Link to={`/catalog/${catalog.name}`}>
+                                            <Card.Img src={catalog.image} />
                                         </Link>
 
-                                        <Card.Body className="card-body">
-                                            <Link to={`/catalog/${catalog._name}`}>
+                                        <Card.Body>
+                                            <Link to={`/catalog/${catalog._id}`}>
                                                 <Card.Title as="div">
-                                                    <strong>{catalog.name}</strong>
+                                                    <strong>{catalog._name}</strong>
                                                 </Card.Title>
                                             </Link>
+
+
                                         </Card.Body>
                                     </Card>
                                 </Col>
@@ -48,4 +50,4 @@ function CatalogScreen() {
     )
 }
 
-export default CatalogScreen
+export default TypeCatalogScreen

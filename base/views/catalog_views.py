@@ -14,30 +14,10 @@ from rest_framework import status
 
 @api_view(['GET'])
 def getCatalog(request):
-    query = request.query_params.get('keyword')
-    if query == None:
-        query = ''
-
-    typeProducts = TypeProduct.objects.filter(
-        name__icontains=query)
-
-    page = request.query_params.get('page')
-    paginator = Paginator(typeProducts, 5)
-
-    try:
-        typeProducts = paginator.page(page)
-    except PageNotAnInteger:
-        typeProducts = paginator.page(1)
-    except EmptyPage:
-        typeProducts = paginator.page(paginator.num_pages)
-
-    if page == None:
-        page = 1
-
-    page = int(page)
-    print('Page:', page)
-    serializer = TypeProductSerializer(typeProducts, many=True)
-    return Response({'typeProducts': serializer.data, 'page': page, 'pages': paginator.num_pages})
+    Catalogs = TypeProduct.objects.all()
+ 
+    serializer = TypeProductSerializer(Catalogs, many=True)
+    return Response({'catalogs': serializer.data})
 
 
 @api_view(['GET'])
