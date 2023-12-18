@@ -30,7 +30,7 @@ function App() {
         <Container>
           <Route path='/' component={HomeScreen} exact />
           <Route path='/catalog' component={CatalogScreen} />
-          <Route path='/catalog/:id' component={CatalogTypeScreen} />
+          <Route path='/catalog/:type' component={CatalogTypeScreen} />
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
           <Route path='/profile' component={ProfileScreen} />

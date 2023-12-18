@@ -41,9 +41,7 @@ function CatalogScreen() {
                                 </Col>
                             ))}
                         </Row>
-
-
-                    </div>}
+             </div>}
         </div>
     )
 }
