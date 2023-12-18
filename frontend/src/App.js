@@ -5,7 +5,7 @@ import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
 import CatalogScreen from './screens/CatalogScreen'
 import ProductScreen from './screens/ProductScreen'
-import CatalogTypeScreen from './screens/TypeProductScreen'
+import TypeCatalogScreen from './screens/TypeProductScreen'
 import AboutScreen from './screens/AboutScreen'
 import CartScreen from './screens/CartScreen'
 import LoginScreen from './screens/LoginScreen'
@@ -30,7 +30,7 @@ function App() {
         <Container>
           <Route path='/' component={HomeScreen} exact />
           <Route path='/catalog' component={CatalogScreen} />
-          <Route path='/catalog/:type' component={CatalogTypeScreen} />
+          <Route path='/catalogs/:type' component={TypeCatalogScreen} />
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
           <Route path='/profile' component={ProfileScreen} />

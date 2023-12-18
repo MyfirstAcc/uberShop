@@ -33,13 +33,13 @@ export const catalogReducer = (state = { catalogs: [] }, action) => {
 
 
 
-export const productDetailsReducer = (state = { products: [] }, action) => {
+export const catalogDetailsReducer = (state = { catalogsList: [] }, action) => {
     switch (action.type) {
         case CATALOG_DETAILS_REQUEST:
             return { loading: true, ...state }
 
         case CATALOG_DETAILS_SUCCESS:
-            return { loading: false, product: action.payload }
+            return { loading: false, catalogsList: action.payload }
 
         case CATALOG_DETAILS_FAIL:
             return { loading: false, error: action.payload }

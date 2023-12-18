@@ -21,17 +21,15 @@ function CatalogScreen() {
                     :
                     <div>
                         <Row>
-                            {console.log(catalogs)}
-
                             {catalogs.map(catalog => (
                                 <Col key={catalog.name} sm={12} md={6} lg={4} xl={3}>
                                     <Card className="my-3 p-3 rounded card-custom">
-                                        <Link to={`/catalog/${catalog._name}`}>
+                                        <Link to={`/catalogs/${catalog._name}`}>
                                             <Card.Img variant="top" src={catalog.image} className="card-img-top" />
                                         </Link>
 
                                         <Card.Body className="card-body">
-                                            <Link to={`/catalog/${catalog._name}`}>
+                                            <Link to={`/catalogs/${catalog._name}`}>
                                                 <Card.Title as="div">
                                                     <strong>{catalog.name}</strong>
                                                 </Card.Title>
@@ -41,7 +39,7 @@ function CatalogScreen() {
                                 </Col>
                             ))}
                         </Row>
-             </div>}
+                    </div>}
         </div>
     )
 }

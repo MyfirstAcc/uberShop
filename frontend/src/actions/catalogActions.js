@@ -15,7 +15,6 @@ export const listCatalogs = () => async (dispatch) => {
     dispatch({ type: CATALOG_LIST_REQUEST });
 
     const { data } = await axios.get(`/api/catalog`);
-    console.log(data)
     dispatch({
       type: CATALOG_LIST_SUCCESS,
       payload: data,
@@ -31,23 +30,24 @@ export const listCatalogs = () => async (dispatch) => {
 }
 
 
-export const ProductTypeSheet = (id) => async (dispatch) => {
+export const productTypeSheet = (type) => async (dispatch) => {
   try {
-      dispatch({ type: CATALOG_DETAILS_REQUEST })
+    dispatch({ type: CATALOG_DETAILS_REQUEST })
 
-      const { data } = await axios.get(`/api/catalog/${id}`)
+    const { data } = await axios.get(`/api/catalog/${type}`)
+    console.log(data)
 
-      dispatch({
-          type: CATALOG_DETAILS_SUCCESS,
-          payload: data
-      })
+    dispatch({
+      type: CATALOG_DETAILS_SUCCESS,
+      payload: data
+    })
 
   } catch (error) {
-      dispatch({
-          type: CATALOG_DETAILS_FAIL,
-          payload: error.response && error.response.data.detail
-              ? error.response.data.detail
-              : error.message,
-      })
+    dispatch({
+      type: CATALOG_DETAILS_FAIL,
+      payload: error.response && error.response.data.detail
+        ? error.response.data.detail
+        : error.message,
+    })
   }
 }

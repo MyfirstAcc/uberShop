@@ -21,9 +21,9 @@ def getCatalog(request):
 
 
 @api_view(['GET'])
-def getCatalogProduct(request, pk):
+def getCatalogProduct(request, name):
        # Получаем объект TypeProduct по _id
-    catalog = TypeProduct.objects.get(_id=pk)
+    catalog = TypeProduct.objects.get(_name=name)
 
     # Получаем все продукты, связанные с данным каталогом
     products = Product.objects.filter(type_product=catalog)

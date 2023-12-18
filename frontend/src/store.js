@@ -13,7 +13,10 @@ import {
 
 import { cartReducer } from './reducers/cartReducers'
 
-import { catalogReducer } from './reducers/catalogReducers';
+import {
+    catalogReducer,
+    catalogDetailsReducer,
+} from './reducers/catalogReducers';
 
 import {
     userLoginReducer,
@@ -44,6 +47,7 @@ const reducer = combineReducers({
     productTopRated: productTopRatedReducer,
 
     catalogList: catalogReducer,
+    productType: catalogDetailsReducer,
 
     cart: cartReducer,
     userLogin: userLoginReducer,
@@ -60,8 +64,8 @@ const reducer = combineReducers({
     orderListMy: orderListMyReducer,
     orderList: orderListReducer,
     orderDeliver: orderDeliverReducer,
-    
-   
+
+
 
 })
 

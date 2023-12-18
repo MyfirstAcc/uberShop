@@ -20,7 +20,6 @@ function HomeScreen({ history }) {
         window.ym(95251816, 'reachGoal', 'Главная страница');
 
 
-
         dispatch(listProducts(keyword))
 
     }, [dispatch, keyword])
@@ -35,6 +34,7 @@ function HomeScreen({ history }) {
                     :
                     <div>
                         <Row>
+                        {console.log(products)}
                             {products.map(product => (
                                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                                     <Product product={product} />
