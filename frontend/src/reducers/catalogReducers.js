@@ -4,10 +4,20 @@ import {
     CATALOG_LIST_FAIL,
     CATALOG_DETAILS_REQUEST,
     CATALOG_DETAILS_SUCCESS,
-    CATALOG_DETAILS_FAIL
+    CATALOG_DETAILS_FAIL,
+
+    FETCH_CATALOG_REQUEST,
+    FETCH_CATALOG_SUCCESS,
+    FETCH_CATALOG_FAILURE
 
 
 } from '../constants/catalogConstants'
+
+const initialState = {
+    catalogsList: [],
+    loading: false,
+    error: null,
+}
 
 
 export const catalogReducer = (state = { catalogs: [] }, action) => {
@@ -44,6 +54,20 @@ export const catalogDetailsReducer = (state = { catalogsList: [] }, action) => {
         case CATALOG_DETAILS_FAIL:
             return { loading: false, error: action.payload }
 
+        default:
+            return state
+    }
+}
+
+
+export const catalogFetchReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case FETCH_CATALOG_REQUEST:
+            return { ...state, loading: true, error: null }
+        case FETCH_CATALOG_SUCCESS:
+            return { ...state, catalogsList: action.payload, loading: false }
+        case FETCH_CATALOG_FAILURE:
+            return { ...state, loading: false, error: action.payload }
         default:
             return state
     }

@@ -1,7 +1,7 @@
 from django.urls import path
-from base.views.rss_views import LatestArticlesFeed
+from base.views import rss_views as views
 
 urlpatterns = [
     # другие URL-адреса
-    path('', LatestArticlesFeed(), name='article_feed'),
+    path('', views.latestArticlesFeed(), name='feed'),
 ]
